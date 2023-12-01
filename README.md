@@ -47,7 +47,7 @@ your@shell ~ % python3 main.py
 ✅ Twitter 
 
 
-✅ Facebook 
+✅ Facebook (You need to be logged in for the search to work)
 
 
 ✅ Tiktok
