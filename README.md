@@ -21,15 +21,37 @@ your@shell ~ % python3 main.py
 ## What search engines are available ?
 
 ✅ Google 
-✅ Bing 
+
+
+✅ Bing
+
+
 ✅ Yahoo 
+
+
 ✅ DuckDuckGo 
+
+
 ✅ Yandex 
+
+
 ✅ Baidu 
+
+
 ✅ Ecosia 
+
+
 ✅ Qwant 
+
+
 ✅ Twitter 
+
+
 ✅ Facebook 
+
+
 ✅ Tiktok
+
+
 🛑 4chan (available soon)
 
