@@ -1,46 +1,188 @@
-import webbrowser
-                   
-print("""
-┌─────────────────────────────────────────────────────────────┐
-│ ____                      _     _                           │
-│/ ___|  ___  __ _ _ __ ___| |__ | |    ___  _   _ _ __   ___ │
-│\___ \ / _ \/ _` | '__/ __| '_ \| |   / _ \| | | | '_ \ / _ \│
-│ ___) |  __/ (_| | | | (__| | | | |__| (_) | |_| | |_) |  __/│
-│|____/ \___|\__,_|_|  \___|_| |_|_____\___/ \__,_| .__/ \___|│
-│                                                 |_|         │
-└─────────────────────────────────────────────────────────────┘
-Made by Prox --- https://twitter.com/OsintTheWorld
-""")
+import webbrowser, argparse
 
-searchdot = input("👋🏻 What is your search today ? : ")
+def cli():
+    parse = argparse.ArgumentParser()
 
-while not searchdot:
-    print("🤖 : You forgot to write something. Please do a search !")
-    searchdot = input("👋🏻 What is your search today ? : ")
+    parse.add_argument(
+        '--google',
+        action='store_true',
+        help='use google'
+    )
+    parse.add_argument(
+        '--bing',
+        action='store_true',
+        help='use bing'
+    )
+    parse.add_argument(
+        '--yahoo',
+        action='store_true',
+        help='use yahoo'
+    )
+    parse.add_argument(
+        '--duckduckgo',
+        action='store_true',
+        help='use duckduckgo'
+    )
+    parse.add_argument(
+        '--yandex',
+        action='store_true',
+        help='use yandex'
+    )
+    parse.add_argument(
+        '--baidu',
+        action='store_true',
+        help='use baidu'
+    )
+    parse.add_argument(
+        '--ecosia',
+        action='store_true',
+        help='use ecosia'
+    )
+    parse.add_argument(
+        '--qwant',
+        action='store_true',
+        help='use qwant'
+    )
+    parse.add_argument(
+        '--twitter',
+        action='store_true',
+        help='use twitter'
+    )
+    parse.add_argument(
+        '--facebook',
+        action='store_true',
+        help='use facebook'
+    )
+    parse.add_argument(
+        '--tiktok',
+        action='store_true',
+        help='use tiktok'
+    )
 
-webbrowser.open("https://www.google.com/search?q=" + searchdot +"&sca_esv=586707143&source=hp&ei=zOdoZci8IKKrkdUPzqCXyAg&iflsig=AO6bgOgAAAAAZWj13BSrYg41mAM-nxwxHFJTRco1YQZ7&ved=0ahUKEwjI0uLXv-yCAxWiVaQEHU7QBYkQ4dUDCAo&uact=5&oq=test&gs_lp=Egdnd3Mtd2l6IgR0ZXN0MhAQABgDGI8BGOUCGOoCGIwDMhAQLhgDGI8BGOUCGOoCGIwDMhAQABgDGI8BGOUCGOoCGIwDMhAQABgDGI8BGOUCGOoCGIwDMhAQABgDGI8BGOUCGOoCGIwDMhAQABgDGI8BGOUCGOoCGIwDMhAQLhgDGI8BGOUCGOoCGIwDMhAQABgDGI8BGOUCGOoCGIwDMhAQABgDGI8BGOUCGOoCGIwDMhAQABgDGI8BGOUCGOoCGIwDSJAJUIcFWOMGcAF4AJABAJgBAKABAKoBALgBA8gBAPgBAagCCg&sclient=gws-wiz")
+    parse.add_argument(
+        '-s', '--search',
+        nargs='?',
+        type=str,
+        default=None,
+        help='your search'
+    )
 
-webbrowser.open("https://www.bing.com/search?form=&q=" + searchdot + "&form=QBLH&sp=-1&lq=1&pq=&sc=0-0&qs=n&sk=&cvid=74B6895DB48342D3B8892A5AFE5C5881&ghsh=0&ghacc=0&ghpl=")
+    args = parse.parse_args()
 
-webbrowser.open("https://search.yahoo.com/search?p=" + searchdot + "&fr=yfp-t&fr2=p%3Afp%2Cm%3Asb&ei=UTF-8&fp=1")
+    searchdot = args.search
 
-webbrowser.open("https://duckduckgo.com/?t=h_&q=" + searchdot + "&ia=web")
+    return args, searchdot
 
-webbrowser.open("https://yandex.com/search/?text=" + searchdot + "&lr=21081&search_source=yacom_desktop_common")
+def launcher_search_engine():
 
-webbrowser.open("https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&ch=&tn=baidu&bar=&wd=" + searchdot + "&rn=&fenlei=256&oq=&rsv_pq=0x8f99c62900020204&rsv_t=dd74Oy0Y3JEDSDl8GFz3pNCzyve%2B2z7C1BdKNCH%2BiyWtsQ6oncphqvblpuVh&rqlang=en")
+    args, searchdot = cli()
 
-webbrowser.open("https://www.ecosia.org/search?method=index&q=" + searchdot)
+    if args.google:
+        try:
+            webbrowser.open("https://www.google.com/search?q=" + searchdot +"&sca_esv=586707143&source=hp&ei=zOdoZci8IKKrkdUPzqCXyAg&iflsig=AO6bgOgAAAAAZWj13BSrYg41mAM-nxwxHFJTRco1YQZ7&ved=0ahUKEwjI0uLXv-yCAxWiVaQEHU7QBYkQ4dUDCAo&uact=5&oq=test&gs_lp=Egdnd3Mtd2l6IgR0ZXN0MhAQABgDGI8BGOUCGOoCGIwDMhAQLhgDGI8BGOUCGOoCGIwDMhAQABgDGI8BGOUCGOoCGIwDMhAQABgDGI8BGOUCGOoCGIwDMhAQABgDGI8BGOUCGOoCGIwDMhAQABgDGI8BGOUCGOoCGIwDMhAQLhgDGI8BGOUCGOoCGIwDMhAQABgDGI8BGOUCGOoCGIwDMhAQABgDGI8BGOUCGOoCGIwDMhAQABgDGI8BGOUCGOoCGIwDSJAJUIcFWOMGcAF4AJABAJgBAKABAKoBALgBA8gBAPgBAagCCg&sclient=gws-wiz")
+            print("✔️ Google")
 
-webbrowser.open("https://www.qwant.com/?l=enr&q=" + searchdot + "&t=web")
-
-webbrowser.open("https://twitter.com/search?q=" + searchdot + "&src=typed_query&f=top")
-
-webbrowser.open("https://www.facebook.com/search/top/?q=" + searchdot)
-
-webbrowser.open("https://www.tiktok.com/search?q=" + searchdot)
+        except Exception:
+            print("❌ Google")
 
 
+    if args.bing:
+        try:
+            webbrowser.open("https://www.bing.com/search?form=&q=" + searchdot + "&form=QBLH&sp=-1&lq=1&pq=&sc=0-0&qs=n&sk=&cvid=74B6895DB48342D3B8892A5AFE5C5881&ghsh=0&ghacc=0&ghpl=")
+            print("✔️ Bing")
+
+        except Exception:
+            print("❌ Bing")
+    
+    if args.yahoo:
+        try:
+            webbrowser.open("https://search.yahoo.com/search?p=" + searchdot + "&fr=yfp-t&fr2=p%3Afp%2Cm%3Asb&ei=UTF-8&fp=1")
+            print("✔️ Yahoo")
+
+        except Exception:
+            print("❌ Yahoo")
+
+    if args.duckduckgo:
+        try:
+            webbrowser.open("https://duckduckgo.com/?t=h_&q=" + searchdot + "&ia=web")
+            print("✔️ Duckduckgo")
+
+        except Exception:
+            print("❌ Duckduckgo")
+
+    if args.yandex:
+        try:
+            webbrowser.open("https://yandex.com/search/?text=" + searchdot + "&lr=21081&search_source=yacom_desktop_common")
+            print("✔️ Yandex")
+
+        except Exception:
+            print("❌ Yandex")
+
+    if args.baidu:
+        try:
+            webbrowser.open("https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&ch=&tn=baidu&bar=&wd=" + searchdot + "&rn=&fenlei=256&oq=&rsv_pq=0x8f99c62900020204&rsv_t=dd74Oy0Y3JEDSDl8GFz3pNCzyve%2B2z7C1BdKNCH%2BiyWtsQ6oncphqvblpuVh&rqlang=en")
+            print("✔️ Baidu")
+
+        except Exception:
+            print("❌ Baidu")
+
+    if args.ecosia:
+        try:
+            webbrowser.open("https://www.ecosia.org/search?method=index&q=" + searchdot)
+            print("✔️ Ecosia")
+
+        except Exception:
+            print("❌ Ecosia")
+
+    if args.qwant:
+        try:
+            webbrowser.open("https://www.qwant.com/?l=enr&q=" + searchdot + "&t=web")
+            print("✔️ Qwant")
+
+        except Exception:
+            print("❌ Qwant")
+    
+    if args.twitter:
+        try:
+            webbrowser.open("https://twitter.com/search?q=" + searchdot + "&src=typed_query&f=top")
+            print("✔️ Twitter")
+
+        except Exception:
+            print("❌ Twitter")
+
+    if args.facebook:
+        try:
+            webbrowser.open("https://www.facebook.com/search/top/?q=" + searchdot)
+            print("✔️ Facebook")
+
+        except Exception:
+            print("❌ Facebook")
+
+    if args.tiktok:
+        try:
+            webbrowser.open("https://www.tiktok.com/search?q=" + searchdot)
+            print("✔️ Tiktok")
+        
+        except Exception:
+            print("❌ Tiktok")
+        
+
+def main(): 
+    print("""
+    ┌─────────────────────────────────────────────────────────────┐
+    │ ____                      _     _                           │
+    │/ ___|  ___  __ _ _ __ ___| |__ | |    ___  _   _ _ __   ___ │
+    │\___ \ / _ \/ _` | '__/ __| '_ \| |   / _ \| | | | '_ \ / _ \│
+    │ ___) |  __/ (_| | | | (__| | | | |__| (_) | |_| | |_) |  __/│
+    │|____/ \___|\__,_|_|  \___|_| |_|_____\___/ \__,_| .__/ \___|│
+    │                                                 |_|         │
+    └─────────────────────────────────────────────────────────────┘
+    Made by Prox --- https://twitter.com/OsintTheWorld
+    """)
+
+    
+    launcher_search_engine()
 
 
-
+if __name__ == "__main__":
+    main()
