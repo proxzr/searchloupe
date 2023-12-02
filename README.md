@@ -16,7 +16,8 @@ your@shell ~ % git clone https://github.com/proxzr/searchloupe
 your@shell ~ % cd searchloupe
 
 
-your@shell ~ % python3 main.py
+your@shell ~ % python3 main.py --google --ecosia --yandex --search ronaldo
+
 
 ## What search engines are available ?
 
