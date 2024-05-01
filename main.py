@@ -1,182 +1,72 @@
-import webbrowser, argparse, sys
+import webbrowser
+import argparse
 
 def cli():
     parse = argparse.ArgumentParser()
 
-    parse.add_argument(
-        '--google',
-        action='store_true',
-        help='use google'
-    )
-    parse.add_argument(
-        '--bing',
-        action='store_true',
-        help='use bing'
-    )
-    parse.add_argument(
-        '--yahoo',
-        action='store_true',
-        help='use yahoo'
-    )
-    parse.add_argument(
-        '--duckduckgo',
-        action='store_true',
-        help='use duckduckgo'
-    )
-    parse.add_argument(
-        '--yandex',
-        action='store_true',
-        help='use yandex'
-    )
-    parse.add_argument(
-        '--baidu',
-        action='store_true',
-        help='use baidu'
-    )
-    parse.add_argument(
-        '--ecosia',
-        action='store_true',
-        help='use ecosia'
-    )
-    parse.add_argument(
-        '--qwant',
-        action='store_true',
-        help='use qwant'
-    )
-    parse.add_argument(
-        '--twitter',
-        action='store_true',
-        help='use twitter'
-    )
-    parse.add_argument(
-        '--facebook',
-        action='store_true',
-        help='use facebook'
-    )
-    parse.add_argument(
-        '--tiktok',
-        action='store_true',
-        help='use tiktok'
-    )
+    parse.add_argument('search', nargs='+', help='search query')
 
-    parse.add_argument('search')
+    parse.add_argument('--google', action='store_true', help='use google')
+    parse.add_argument('--bing', action='store_true', help='use bing')
+    parse.add_argument('--yahoo', action='store_true', help='use yahoo')
+    parse.add_argument('--duckduckgo', action='store_true', help='use duckduckgo')
+    parse.add_argument('--yandex', action='store_true', help='use yandex')
+    parse.add_argument('--baidu', action='store_true', help='use baidu')
+    parse.add_argument('--ecosia', action='store_true', help='use ecosia')
+    parse.add_argument('--qwant', action='store_true', help='use qwant')
+    parse.add_argument('--twitter', action='store_true', help='use twitter')
+    parse.add_argument('--facebook', action='store_true', help='use facebook')
+    parse.add_argument('--tiktok', action='store_true', help='use tiktok')
 
     args = parse.parse_args()
-    searchdot = args.search
 
-    return args, searchdot
+    search_query = ' '.join(args.search)
+
+    return args, search_query
 
 def launcher_search_engine():
-
-    args, searchdot = cli()
-
-    if len(sys.argv) == 2 and args.search:
-        try:
-            print("✔️ Search with all search engines")
-            webbrowser.open("https://www.google.com/search?q=" + searchdot)
-            webbrowser.open("https://www.bing.com/search?form=&q=" + searchdot)
-            webbrowser.open("https://search.yahoo.com/search?p=" + searchdot + "&ei=UTF-8&fp=1")
-            webbrowser.open("https://duckduckgo.com/?t=h_&q=" + searchdot + "&ia=web")
-            webbrowser.open("https://yandex.com/search/?text=" + searchdot + "&search_source=yacom_desktop_common")
-            webbrowser.open("https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&ch=&tn=baidu&bar=&wd=" + searchdot + "&rn=&fenlei=256&rqlang=en")
-            webbrowser.open("https://www.ecosia.org/search?method=index&q=" + searchdot)
-            webbrowser.open("https://www.qwant.com/?l=enr&q=" + searchdot + "&t=web")
-            webbrowser.open("https://twitter.com/search?q=" + searchdot + "&src=typed_query&f=top")
-            webbrowser.open("https://www.facebook.com/search/top/?q=" + searchdot)
-            webbrowser.open("https://www.tiktok.com/search?q=" + searchdot)
-        except:
-            print("❌ Error on search with all search engines")
-
+    args, search_query = cli()
 
     if args.google:
-        try:
-            webbrowser.open("https://www.google.com/search?q=" + searchdot)
-            print("✔️ Google")
-
-        except Exception:
-            print("❌ Google")
-
+        webbrowser.open("https://www.google.com/search?q=" + search_query)
 
     if args.bing:
-        try:
-            webbrowser.open("https://www.bing.com/search?form=&q=" + searchdot)
-            print("✔️ Bing")
+        webbrowser.open("https://www.bing.com/search?form=&q=" + search_query)
 
-        except Exception:
-            print("❌ Bing")
-    
     if args.yahoo:
-        try:
-            webbrowser.open("https://search.yahoo.com/search?p=" + searchdot + "&ei=UTF-8&fp=1")
-            print("✔️ Yahoo")
-
-        except Exception:
-            print("❌ Yahoo")
+        webbrowser.open("https://search.yahoo.com/search?p=" + search_query + "&ei=UTF-8&fp=1")
 
     if args.duckduckgo:
-        try:
-            webbrowser.open("https://duckduckgo.com/?t=h_&q=" + searchdot + "&ia=web")
-            print("✔️ Duckduckgo")
-
-        except Exception:
-            print("❌ Duckduckgo")
+        webbrowser.open("https://duckduckgo.com/?t=h_&q=" + search_query + "&ia=web")
 
     if args.yandex:
-        try:
-            webbrowser.open("https://yandex.com/search/?text=" + searchdot + "&search_source=yacom_desktop_common")
-            print("✔️ Yandex")
-
-        except Exception:
-            print("❌ Yandex")
+        webbrowser.open("https://yandex.com/search/?text=" + search_query + "&search_source=yacom_desktop_common")
 
     if args.baidu:
-        try:
-            webbrowser.open("https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&ch=&tn=baidu&bar=&wd=" + searchdot + "&rn=&fenlei=256&rqlang=en")
-            print("✔️ Baidu")
-
-        except Exception:
-            print("❌ Baidu")
+        webbrowser.open("https://www.baidu.com/s?ie=utf-8&f=8&rsv_bp=1&rsv_idx=1&ch=&tn=baidu&bar=&wd=" + search_query + "&rn=&fenlei=256&rqlang=en")
 
     if args.ecosia:
-        try:
-            webbrowser.open("https://www.ecosia.org/search?method=index&q=" + searchdot)
-            print("✔️ Ecosia")
-
-        except Exception:
-            print("❌ Ecosia")
+        webbrowser.open("https://www.ecosia.org/search?method=index&q=" + search_query)
 
     if args.qwant:
-        try:
-            webbrowser.open("https://www.qwant.com/?l=enr&q=" + searchdot + "&t=web")
-            print("✔️ Qwant")
+        webbrowser.open("https://www.qwant.com/?l=enr&q=" + search_query + "&t=web")
 
-        except Exception:
-            print("❌ Qwant")
-    
     if args.twitter:
-        try:
-            webbrowser.open("https://twitter.com/search?q=" + searchdot + "&src=typed_query&f=top")
-            print("✔️ Twitter")
-
-        except Exception:
-            print("❌ Twitter")
+        webbrowser.open("https://twitter.com/search?q=" + search_query + "&src=typed_query&f=top")
 
     if args.facebook:
-        try:
-            webbrowser.open("https://www.facebook.com/search/top/?q=" + searchdot)
-            print("✔️ Facebook")
-
-        except Exception:
-            print("❌ Facebook")
+        webbrowser.open("https://www.facebook.com/search/top/?q=" + search_query)
 
     if args.tiktok:
-        try:
-            webbrowser.open("https://www.tiktok.com/search?q=" + searchdot)
-            print("✔️ Tiktok")
-        
-        except Exception:
-            print("❌ Tiktok")
+        webbrowser.open("https://www.tiktok.com/search?q=" + search_query)
 
+def print_boxed_text(text):
+    max_length = max(len(line) for line in text)
+    border = '┌' + '─' * (max_length + 2) + '┐'
+    print(border)
+    for line in text:
+        print('│ ' + line + ' ' * (max_length - len(line)) + ' │')
+    print('└' + '─' * (max_length + 2) + '┘')
 
 def main(): 
     print("""
@@ -188,8 +78,19 @@ def main():
     │|____/ \___|\__,_|_|  \___|_| |_|_____\___/ \__,_| .__/ \___|│
     │                                                 |_|         │
     └─────────────────────────────────────────────────────────────┘
-    Made by Prox --- https://twitter.com/OsintTheWorld
+    Made by Prox --- https://twitter.com/OsintTheWorld      
+    
     """)
+
+
+    print("-" * 61)
+    print()
+    print_boxed_text(["Thanks for using my tool",
+                      "Hoping it will be of great help to you"])
+    print()
+    print("-" * 61)
+
+
 
     launcher_search_engine()
 
