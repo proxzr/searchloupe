@@ -1,6 +1,12 @@
+
+
 ## SearchLoupe
 
-![App Screenshot](https://media.discordapp.net/attachments/998022809265639425/1179885937698816031/Slide_16_9_-_11.jpg?ex=657b6968&is=6568f468&hm=ea6db47985c00ebafdd6fa9a2755a3378d5c8471e6c24e7a1456f897c255fb46&=&format=webp&width=1938&height=1090)
+
+
+
+![Slide 16_9 - 1-2](https://github.com/proxzr/searchloupe/assets/152530696/0943f0c3-bcd8-49a0-90aa-f94baa10919d)
+
 
 SearchLoupe is a tool that allows you to perform a single search on different search engines.
 
@@ -25,7 +31,13 @@ python3 main.py --google [SEARCH]
 
 # Usage to perform the search on all search engines
 python3 main.py [SEARCH]
+
+or
+
+python3 main.py --google --bing --yahoo --duckduckgo --yandex --baidu --ecosia --qwant --twitter --facebook --tiktok [SEARCH]
 ```
+
+
 
 ## What search engines are available ?
 
@@ -63,3 +75,11 @@ python3 main.py [SEARCH]
 
 
 🛑 4chan (available soon)
+
+## Thanks to
+
+C4rr3D45 - for beta testing 
+
+N0rz3 - For improving the code
+
+People - downloading and using my code ❤️
