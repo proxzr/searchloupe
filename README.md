@@ -76,6 +76,12 @@ python3 main.py --google --bing --yahoo --duckduckgo --yandex --baidu --ecosia -
 
 🛑 4chan (available soon)
 
+🛑 GitHub (available soon)
+
+🛑 eBay (available soon)
+
+🛑 Soundcloud (available soon)
+
 ## Thanks to
 
 C4rr3D45 - for beta testing 
