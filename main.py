@@ -78,7 +78,7 @@ def main():
     │|____/ \___|\__,_|_|  \___|_| |_|_____\___/ \__,_| .__/ \___|│
     │                                                 |_|         │
     └─────────────────────────────────────────────────────────────┘
-    Made by Prox --- https://twitter.com/OsintTheWorld      
+    Made by Prox --- https://x.com/proxzrr
     
     """)
 
